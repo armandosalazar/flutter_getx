@@ -5,8 +5,23 @@ import 'package:get/get.dart';
 class CounterPage extends GetView<CounterController> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: Text('CounterPage')),
-        body: SafeArea(child: Text('CounterController')));
+    return GetBuilder<CounterController>(
+      init: CounterController(),
+      initState: (_) {},
+      builder: (_) {
+        return Scaffold(
+          appBar: AppBar(title: Text('CounterPage')),
+          body: SafeArea(
+            child: Center(
+              child: Text('${_.numbers}'),
+            ),
+          ),
+          floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: () => _.increment(),
+          ),
+        );
+      },
+    );
   }
 }
