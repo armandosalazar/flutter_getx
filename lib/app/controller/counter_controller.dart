@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
 
 class CounterController extends GetxController {
-  int numbers = 0;
+  int number = 0;
+  RxInt number2 = 0.obs;
 
   @override
   void onInit() {
@@ -25,9 +26,13 @@ class CounterController extends GetxController {
   }
 
   void increment() {
-    numbers++;
+    number++;
     // Redibuja la pantalla como StatefulWidget, entonces no tiene caso,
     // es aquí donde surgen las variables reactivas.
     update();
+  }
+
+  void increment2() {
+    number2.value++;
   }
 }

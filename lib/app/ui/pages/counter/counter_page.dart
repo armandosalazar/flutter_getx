@@ -6,19 +6,59 @@ class CounterPage extends GetView<CounterController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CounterController>(
-      init: CounterController(),
-      initState: (_) {},
+      // init: CounterController(),
+      // initState: (_) {},
       builder: (_) {
+        print('[ Redraw Counter Page ]');
         return Scaffold(
-          appBar: AppBar(title: Text('CounterPage')),
+          appBar: AppBar(
+            title: Text('Counter Page'),
+          ),
           body: SafeArea(
             child: Center(
-              child: Text('${_.numbers}'),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    '${_.number}',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blueGrey[700],
+                    ),
+                  ),
+                  Obx(() {
+                    print('[ Redraw Text ]');
+                    return Text(
+                      '${_.number2.value}',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blueGrey[600],
+                      ),
+                    );
+                  }),
+                ],
+              ),
             ),
           ),
-          floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.add),
-            onPressed: () => _.increment(),
+          floatingActionButton: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              FloatingActionButton(
+                heroTag: null,
+                child: Icon(Icons.add),
+                onPressed: () => _.increment(),
+              ),
+              SizedBox(
+                height: 10.0,
+              ),
+              FloatingActionButton(
+                heroTag: null,
+                child: Icon(Icons.add),
+                onPressed: () => _.increment2(),
+              ),
+            ],
           ),
         );
       },
