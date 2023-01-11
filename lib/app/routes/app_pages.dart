@@ -17,7 +17,7 @@ abstract class AppPages {
     GetPage(
       name: Routes.COUNTER,
       page: () => CounterPage(),
-      transition: Transition.native,
+      transition: Transition.downToUp,
       binding: CounterBinding(),
     ),
     GetPage(

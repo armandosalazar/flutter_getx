@@ -17,19 +17,28 @@ class HomePage extends GetView<HomeController> {
           builder: (controller) {
             // El center centra horizontal y verticalmente el widget
             return Center(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.blueGrey,
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-                padding: EdgeInsets.all(20.0),
-                child: Text(
-                  'Hola mundo',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.blueGrey,
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    padding: EdgeInsets.all(20.0),
+                    child: Text(
+                      'Hello World',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
-                ),
+                  ElevatedButton(
+                    onPressed: () => controller.gotToCounter(),
+                    child: Text('Counter'),
+                  )
+                ],
               ),
             );
           },
