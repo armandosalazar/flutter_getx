@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx/app/bindings/home_binding.dart';
+import 'package:get/get.dart';
 
-void main() => runApp(MyApp());
+import 'app/routes/app_pages.dart';
+import 'app/ui/themes/light_theme.dart';
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Material App Bar'),
-        ),
-        body: Center(
-          child: Container(
-            child: Text('Hello World'),
-          ),
-        ),
-      ),
-    );
-  }
+void main() {
+  runApp(GetMaterialApp(
+    debugShowCheckedModeBanner: false,
+    initialRoute: Routes.HOME,
+    theme: appThemeData,
+    defaultTransition: Transition.fade,
+    initialBinding: HomeBinding(),
+    getPages: AppPages.pages,
+    // home: HomePage(),
+  ));
 }
