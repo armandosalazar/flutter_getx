@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx/app/controller/home_controller.dart';
+import 'package:flutter_getx/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 class HomePage extends GetView<HomeController> {
@@ -35,8 +36,12 @@ class HomePage extends GetView<HomeController> {
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () => controller.gotToCounter(),
                     child: Text('Counter'),
+                    onPressed: () => controller.gotToCounter(),
+                  ),
+                  TextButton(
+                    child: Text('Pattern'),
+                    onPressed: () => Get.toNamed(Routes.PATTERN),
                   )
                 ],
               ),

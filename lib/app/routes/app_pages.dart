@@ -1,5 +1,7 @@
 import 'package:flutter_getx/app/bindings/counter_binding.dart';
+import 'package:flutter_getx/app/bindings/pattern_binding.dart';
 import 'package:flutter_getx/app/ui/pages/home/home_page.dart';
+import 'package:flutter_getx/app/ui/pages/pattern/pattern_page.dart';
 import 'package:flutter_getx/app/ui/pages/splash_page.dart';
 import 'package:get/get.dart';
 
@@ -23,6 +25,11 @@ abstract class AppPages {
     GetPage(
       name: Routes.SPLASH,
       page: () => SplashPage(),
-    )
+    ),
+    GetPage(
+      name: Routes.PATTERN,
+      page: () => PatternPage(),
+      binding: PatternBinding(),
+    ),
   ];
 }
